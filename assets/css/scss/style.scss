@@ -1,2 +1,226 @@
 @charset "utf-8";
 @import 'reset';
+@import 'mixins';
+
+$reverseWhite: #fff;
+$reverseBlack: #000;
+$primaryDark: #abd9ff;
+$primaryLight: #c3f8ff;
+$secondaryDark: #ffebad;
+$secondaryLight: #fff6bf;
+
+// 공통
+html {
+  scroll-behavior: smooth;
+}
+body {
+  @include scrollbars(0px, black, white);
+}
+
+.wrapper {
+  min-width: 360px;
+  background: #f4f4f4;
+}
+
+.inner {
+  position: relative;
+  max-width: $desktop;
+  margin: 0 auto;
+}
+
+// 헤더
+.header {
+  .logo {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 100;
+    font-family: 'Marck Script', cursive;
+    font-size: 40px;
+    color: $reverseWhite;
+    line-height: 1;
+  }
+
+  .nav {
+    position: absolute;
+    top: 300px;
+    right: 30px;
+    z-index: 100;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: top 0.1s;
+    a {
+      flex: 0 1 20%;
+      width: 12px;
+      margin: 0 auto;
+      display: block;
+      text-indent: -9999px;
+      background: rgba($reverseWhite, 0.5);
+      border-radius: 10px;
+      transition: all 0.5s;
+      &.current {
+        flex: 0 1 50%;
+        width: 18px;
+        background: $primaryDark;
+      }
+    }
+  }
+}
+
+// 푸터
+.footer {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// 메인
+.main {
+  .section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: $secondaryLight;
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 60;
+      transform: translate(-50%, 0);
+      transition: transform 0.5s;
+    }
+    &.current {
+      .container {
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &_home {
+    .bg_vanta {
+      width: 100%;
+      height: 100%;
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: 50;
+        width: 100%;
+        height: 100%;
+        background: rgba(black, 0.3);
+      }
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 720px;
+      height: 120px;
+      background: rgba(white, 0.1);
+      backdrop-filter: blur(20px);
+      border: 3px solid white;
+    }
+
+    .typing {
+      display: inline-block;
+      padding-right: 2px;
+      font-size: 28px;
+      font-weight: 500;
+      color: white;
+      color: transparent;
+      line-height: 1.2;
+      animation: cursor 1s infinite;
+    }
+
+    .scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      z-index: 60;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        position: relative;
+        animation: upDown 0.5s infinite alternate;
+        fill: white;
+      }
+    }
+  }
+
+  &_works {
+    background-image: url('/assets/images/bg_works.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  &_about {
+    .bg_shape {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      transform: rotate(180deg);
+      svg {
+        position: relative;
+        display: block;
+        width: calc(129% + 1.3px);
+        height: 100px;
+      }
+      .shape-fill {
+        fill: #f4f4f4;
+      }
+    }
+
+    .container {
+      width: 640px;
+    }
+
+    .photo {
+      position: relative;
+      overflow: hidden;
+      width: 300px;
+      height: 300px;
+      margin: 0 auto;
+      border-radius: 50%;
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: auto;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+@keyframes cursor {
+  0% {
+    border-right: 1px solid white;
+  }
+  50% {
+    border-right: 1px solid transparent;
+  }
+  100% {
+    border-right: 1px solid white;
+  }
+}
+
+@keyframes upDown {
+  0% {
+    top: 10px;
+  }
+  100% {
+    top: 0;
+  }
+}
