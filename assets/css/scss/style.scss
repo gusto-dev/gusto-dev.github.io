@@ -72,7 +72,7 @@ body {
 // 푸터
 .footer {
   width: 100%;
-  height: 100px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,7 +84,6 @@ body {
     position: relative;
     width: 100%;
     height: 100vh;
-    background-color: $secondaryLight;
     .container {
       position: absolute;
       top: 50%;
@@ -123,17 +122,16 @@ body {
       background: rgba(white, 0.1);
       backdrop-filter: blur(20px);
       border: 3px solid white;
-    }
-
-    .typing {
-      display: inline-block;
-      padding-right: 2px;
-      font-size: 28px;
-      font-weight: 500;
-      color: white;
-      color: transparent;
-      line-height: 1.2;
-      animation: cursor 1s infinite;
+      .typing {
+        display: inline-block;
+        padding-right: 2px;
+        font-size: 28px;
+        font-weight: 500;
+        color: white;
+        // color: transparent;
+        line-height: 1.2;
+        animation: cursor 1s infinite;
+      }
     }
 
     .scroll {
@@ -162,6 +160,7 @@ body {
   }
 
   &_about {
+    background: linear-gradient($secondaryDark, $secondaryLight);
     .bg_shape {
       position: absolute;
       bottom: 0;
@@ -183,22 +182,43 @@ body {
 
     .container {
       width: 640px;
-    }
-
-    .photo {
-      position: relative;
-      overflow: hidden;
-      width: 300px;
-      height: 300px;
-      margin: 0 auto;
-      border-radius: 50%;
-      img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: auto;
-        transform: translate(-50%, -50%);
-        object-fit: cover;
+      .photo {
+        position: relative;
+        overflow: hidden;
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+        border-radius: 50%;
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: auto;
+          transform: translate(-50%, -50%) scale(1);
+          object-fit: cover;
+          transition: transform 0.5s;
+        }
+        &:hover {
+          img {
+            transform: translate(-50%, -50%) scale(1.2);
+          }
+        }
+      }
+      .intro {
+        width: 400px;
+        margin: 0 auto;
+        dl {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        dt {
+          width: 32px;
+        }
+        dd {
+          width: calc(100% - 40px);
+          margin-left: 8px;
+          font-size: 16px;
+        }
       }
     }
   }

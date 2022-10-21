@@ -36,6 +36,11 @@ canvas,
 svg {
   display: block;
   max-width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
 }
 
 button {
@@ -158,7 +163,7 @@ body {
 
 .footer {
   width: 100%;
-  height: 100px;
+  height: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -174,7 +179,6 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-color: #fff6bf;
 }
 .main .section .container {
   position: absolute;
@@ -221,13 +225,12 @@ body {
           backdrop-filter: blur(20px);
   border: 3px solid white;
 }
-.main_home .typing {
+.main_home .container .typing {
   display: inline-block;
   padding-right: 2px;
   font-size: 28px;
   font-weight: 500;
   color: white;
-  color: transparent;
   line-height: 1.2;
   -webkit-animation: cursor 1s infinite;
           animation: cursor 1s infinite;
@@ -262,6 +265,10 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+.main_about {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffebad), to(#fff6bf));
+  background: linear-gradient(#ffebad, #fff6bf);
+}
 .main_about .bg_shape {
   position: absolute;
   bottom: 0;
@@ -284,23 +291,50 @@ body {
 .main_about .container {
   width: 640px;
 }
-.main_about .photo {
+.main_about .container .photo {
   position: relative;
   overflow: hidden;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   margin: 0 auto;
   border-radius: 50%;
 }
-.main_about .photo img {
+.main_about .container .photo img {
   position: absolute;
   top: 50%;
   left: 50%;
   width: auto;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
   -o-object-fit: cover;
      object-fit: cover;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+.main_about .container .photo:hover img {
+  -webkit-transform: translate(-50%, -50%) scale(1.2);
+          transform: translate(-50%, -50%) scale(1.2);
+}
+.main_about .container .intro {
+  width: 400px;
+  margin: 0 auto;
+}
+.main_about .container .intro dl {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.main_about .container .intro dt {
+  width: 32px;
+}
+.main_about .container .intro dd {
+  width: calc(100% - 40px);
+  margin-left: 8px;
+  font-size: 16px;
 }
 
 @-webkit-keyframes cursor {
