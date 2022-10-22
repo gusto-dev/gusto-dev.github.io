@@ -41,7 +41,7 @@
         </nav>
       </header>
 
-      <main class="main" id="smoothScroll">
+      <main class="main">
         <section class="main_home section" id="home">
           <div class="bg_vanta" id="vanta"></div>
           <div class="container">
@@ -64,7 +64,37 @@
           </div>
         </section>
 
-        <section class="main_works section" id="works">works</section>
+        <section class="main_works section" id="works">
+          <div class="container">
+            <ul class="list">
+              <li>
+                <a href="https://www.gorani.kr/" target="_blank">
+                  <img src="/assets/images/img_works01.png" alt="" />
+                  <h5>고라니</h5>
+                  <div class="badge">
+                    <span>반응형</span>
+                    <span>html</span>
+                    <span>css</span>
+                    <span>javascript</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.deeplol.gg/" target="_blank">
+                  <img src="/assets/images/img_works02.png" alt="" />
+                  <h5>DEEPLOL</h5>
+                  <div class="badge">
+                    <span>PC Web</span>
+                    <span>React</span>
+                    <span>html</span>
+                    <span>css</span>
+                    <span>javascript</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
 
         <section class="main_about section" id="about">
           <div class="container">
@@ -85,7 +115,9 @@
                     />
                   </svg>
                 </dt>
-                <dd>이희근</dd>
+                <dd>Front-End Developer</dd>
+              </dl>
+              <dl>
                 <dt>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -103,6 +135,8 @@
                     >github.com/gusto-dev</a
                   >
                 </dd>
+              </dl>
+              <dl>
                 <dt>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -120,6 +154,8 @@
                     >velog.io/@gusto</a
                   >
                 </dd>
+              </dl>
+              <dl>
                 <dt>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -159,13 +195,9 @@
       </footer>
     </div>
 
-    <!-- <script src="https://unpkg.com/smooth-scrollbar@8.7.4/dist/smooth-scrollbar.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
     <script>
-      // const Scrollbar = window.Scrollbar;
-      // Scrollbar.init(document.querySelector('#smoothScroll'));
-
       VANTA.CLOUDS({
         el: '#vanta',
         mouseControls: true,
