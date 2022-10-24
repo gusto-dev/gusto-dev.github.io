@@ -85,6 +85,9 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background: #f4f4f4;
+}
 body::-webkit-scrollbar {
   width: 0px;
   height: 0px;
@@ -102,7 +105,6 @@ body {
 
 .wrapper {
   min-width: 360px;
-  background: #f4f4f4;
 }
 
 .inner {
@@ -160,6 +162,14 @@ body {
   width: 18px;
   background: #abd9ff;
 }
+@media (max-width: 720px) {
+  .header .logo {
+    font-size: 36px;
+  }
+  .header .nav {
+    display: none;
+  }
+}
 
 .footer {
   width: 100%;
@@ -174,6 +184,11 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   font-weight: 500;
+}
+@media (max-width: 720px) {
+  .footer {
+    font-size: 14px;
+  }
 }
 
 .main .section {
@@ -274,7 +289,8 @@ body {
           backdrop-filter: blur(5px);
 }
 .main_works .container {
-  width: 1280px;
+  max-width: 1280px;
+  width: 100%;
 }
 .main_works .list {
   display: -webkit-box;
@@ -285,7 +301,7 @@ body {
           justify-content: center;
 }
 .main_works .list li {
-  width: 620px;
+  width: calc(50% - 20px);
   margin: 0 10px;
   padding: 40px 20px;
   background: white;
@@ -398,6 +414,68 @@ body {
 }
 .main_about .container .intro a {
   text-decoration: underline;
+}
+@media (max-width: 1240px) {
+  .main_home .container {
+    width: 640px;
+    height: 150px;
+  }
+  .main_home .container .typing {
+    font-size: 24px;
+  }
+}
+@media (max-width: 720px) {
+  .main .section {
+    overflow: hidden;
+    height: 80vh;
+  }
+  .main .section .container {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  .main_home .container {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+  }
+  .main_home .container .typing {
+    font-size: 16px;
+  }
+  .main_works .list {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .main_works .list li {
+    width: calc(100% - 40px);
+    margin: 0 20px;
+    padding: 20px 10px;
+  }
+  .main_works .list li h5 {
+    margin: 10px;
+    font-size: 16px;
+  }
+  .main_works .list li .badge span {
+    font-size: 14px;
+  }
+  .main_works .list li + li {
+    margin-top: 20px;
+  }
+  .main_about .bg_shape {
+    display: none;
+  }
+  .main_about .container {
+    width: 100%;
+  }
+  .main_about .container .photo {
+    width: 280px;
+    height: 280px;
+  }
+  .main_about .container .intro {
+    width: 300px;
+  }
+  .main_about .container .intro dd {
+    font-size: 16px;
+  }
 }
 
 @-webkit-keyframes cursor {

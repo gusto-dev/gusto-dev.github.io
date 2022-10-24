@@ -15,11 +15,11 @@ html {
 }
 body {
   @include scrollbars(0px, black, white);
+  background: #f4f4f4;
 }
 
 .wrapper {
   min-width: 360px;
-  background: #f4f4f4;
 }
 
 .inner {
@@ -67,6 +67,16 @@ body {
       }
     }
   }
+
+  @include mobile {
+    .logo {
+      font-size: 36px;
+    }
+
+    .nav {
+      display: none;
+    }
+  }
 }
 
 // 푸터
@@ -77,6 +87,10 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: 500;
+
+  @include mobile {
+    font-size: 14px;
+  }
 }
 
 // 메인
@@ -168,14 +182,15 @@ body {
     }
 
     .container {
-      width: 1280px;
+      max-width: 1280px;
+      width: 100%;
     }
 
     .list {
       display: flex;
       justify-content: center;
       li {
-        width: 620px;
+        width: calc(50% - 20px);
         margin: 0 10px;
         padding: 40px 20px;
         background: white;
@@ -273,6 +288,83 @@ body {
         }
         a {
           text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    &_home {
+      .container {
+        width: 640px;
+        height: 150px;
+        .typing {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    .section {
+      overflow: hidden;
+      height: 80vh;
+
+      .container {
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &_home {
+      .container {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+        .typing {
+          font-size: 16px;
+        }
+      }
+    }
+
+    &_works {
+      .list {
+        flex-wrap: wrap;
+        li {
+          width: calc(100% - 40px);
+          margin: 0 20px;
+          padding: 20px 10px;
+          h5 {
+            margin: 10px;
+            font-size: 16px;
+          }
+          .badge {
+            span {
+              font-size: 14px;
+            }
+          }
+        }
+        li + li {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    &_about {
+      .bg_shape {
+        display: none;
+      }
+
+      .container {
+        width: 100%;
+        .photo {
+          width: 280px;
+          height: 280px;
+        }
+        .intro {
+          width: 300px;
+          dd {
+            font-size: 16px;
+          }
         }
       }
     }
